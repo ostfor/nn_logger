@@ -133,7 +133,10 @@ class DataLogging(object):
         self.titles = config["titles"]
 
     def visualize(self, images, title):
-        pass
+        import cv2
+        for i, img in enumerate(images):
+            pt = os.path.join(self.visualize_folder, "{}_{}.png".format(title, i))
+            cv2.imwrite(pt, img)
 
     def add(self, query):
         print(query)
